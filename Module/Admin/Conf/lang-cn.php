@@ -15,21 +15,11 @@ return array (
 		'LIKEACTIVITY_ADDCONTENT_NAME'	=> '增加内容',
 		'LIKEACTIVITY_EDITCONTENT_NAME'	=> '编辑内容',
 		
-		
-		
-		/* Header of the admin controllers */
-		'MY_PROFILE' 	=> '个人信息',
-		'LOG_OUT' 		=> '退出',
-		'YOU_ARE_HERE' 	=> '当前位置',
-		
-		/* Left */
-		'ACCOUNT' => '账户',
-		'NAVIGATION' => '导航',
-		
-		/* EmailPush table */
-		'STATUS_INTERRUPTED' => '中断',
-		'STATUS_PUSHED'      => '推送完毕',
-		'STATUS_PUSHING'	 => '推送中',
+		/* top bar tpl */
+		'MY_PROFILE' => '个人资料',
+		'MY_MESSAGES' => '消息中心',
+		'LOCK_SCREEN' => '锁定后台',
+		'LOG_OUT' => '退出',
 		
 		/* Illegal Controller */
 		'ILLEGAL_WELCOME'	=> '抱歉，您的版本不是完整版，请联系管理员！',
@@ -46,32 +36,10 @@ return array (
 		'LOGIN_FAILED'			=> "用户名或密码错误",
 		'EMAIL_SENT'			=> "重置密码已发送到指定邮箱，请查收！",
 		'EMAIL_NOT_SENT'		=> "邮件地址错误，请检查后再试。",
+		'LOG_OUT_SUCCESSFULLY'  => "登出成功",
 		
-		/* ==================== */
-		/* EmailPush controller */
-		/* ==================== */
-		/* manage action */
-		'EMAILPUSH_LIST'					=> '任务列表',
+		/* Index controller */
 		
-		'EMAILPUSH_LIST_HEAD_ID'			=> '序号',
-		'EMAILPUSH_LIST_HEAD_FILE' 			=> '推送文件',
-		'EMAILPUSH_LIST_HEAD_START_TIME' 	=> '开始时间',
-		'EMAILPUSH_LIST_HEAD_STATUS' 		=> '状态',
-		'EMAILPUSH_LIST_HEAD_ACTION' 		=> '操作',
 		
-		/* add action */
-		'EMAILPUSH_ADD_TITLE' 				=> '任务详情',
-		'EMAILPUSH_ADD_DESCRIPTION' 		=> '推送描述',
-		'EMAILPUSH_ADD_FILE' 				=> '邮件文件',
-		'EMAILPUSH_ADD_UPLOAD_FILE' 	    => '上传新文件',
-		'EAMILPUSH_ADD_CONTENT'				=> '邮件内容',
-		'EMAILPUSH_ADD_SUBMIT'				=> '推送',
-		'EMAILPUSH_ADD_SUC'					=> '推送中...',
-		'EMAILPUSH_ADD_FAI'					=> '推送失败',
-		
-		/* ======================= */
-		/* LikeActivity controller */
-		/* ======================= */
-		
-		/* content */
+
 );

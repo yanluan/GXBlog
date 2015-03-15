@@ -7,7 +7,7 @@
 						</a>
 						<!-- start: LOGO -->
 						<a class="navbar-brand" href="index.html">
-							<img src="__PUBLIC__/images/logo.png" alt="Rapido"/>
+							<img src="__PUBLIC__/images/gxblog-logo-white-small.png" alt="Rapido"/>
 						</a>
 						<!-- end: LOGO -->
 					</div>
@@ -17,32 +17,27 @@
 							<!-- start: USER DROPDOWN -->
 							<li class="dropdown current-user">
 								<a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
-									<img src="__PUBLIC__/images/avatar-1-small.jpg" class="img-circle" alt=""> <span class="username hidden-xs">Peter Clark</span> <i class="fa fa-caret-down "></i>
+									<img src="__PUBLIC__/images/avatar-1-small.jpg" class="img-circle" alt=""> <span class="username hidden-xs">{$data['admin']['nickname']}</span> <i class="fa fa-caret-down "></i>
 								</a>
 								<ul class="dropdown-menu dropdown-dark">
 									<li>
-										<a href="pages_user_profile.html">
-											My Profile
+										<a href="#">
+											{:C("MY_PROFILE")}
 										</a>
 									</li>
 									<li>
-										<a href="pages_calendar.html">
-											My Calendar
+										<a href="#">
+											{:C("MY_MESSAGES")}
 										</a>
 									</li>
 									<li>
-										<a href="pages_messages.html">
-											My Messages (3)
+										<a href="__MODULE__/Login/lock">
+											{:C("LOCK_SCREEN")}
 										</a>
 									</li>
 									<li>
-										<a href="login_lock_screen.html">
-											Lock Screen
-										</a>
-									</li>
-									<li>
-										<a href="login_login.html">
-											Log Out
+										<a href="__MODULE__/Login/logOut">
+											{:C("LOG_OUT")}
 										</a>
 									</li>
 								</ul>

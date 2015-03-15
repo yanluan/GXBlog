@@ -40,9 +40,13 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 					redirect(__MODULE__ . "/Login/index");
 				}
 			} else { // 已登录
+				if(ACTION_NAME == 'logOut') return true;
+				if(ACTION_NAME == 'lock') return true;
+				
 				if(CONTROLLER_NAME == 'Login') {
 					redirect(__MODULE__ . "/Index/index");
-			}
+				}
+				
 		}
 	}
 	
@@ -52,65 +56,10 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 	 * @author genialx
 	 */
 	protected function _assign() {
+		$MC = get_config("Model.ini.php");
+		
 		/* current user */
-		$this->data['user'] = M('admin')->where(array('id'=>session(self::ADMIN_SESSION_ID)))->find();
-		
-		/* location */
-		$this->data['location'] = array(
-				'name' => C( strtoupper(CONTROLLER_NAME) . '_' . strtoupper(ACTION_NAME) . '_NAME'),
-		);
-		
-		/* left bar */
-		$this->data['left_active'] = array(
-				'index_index' 				=> '',
-				'promote_index' 			=> '',
-				'emailpush_manage' 			=> '',
-				'emailpush_add' 			=> '',
-				'activity_index' 			=> '',
-				'likeactivity_index' 		=> '',
-				'likeactivity_user' 		=> '',
-				'likeactivity_content' 		=> '',
-				'likeactivity_addcontent' 	=> '',
-				'likeactivity_editcontent' 	=> '',
-				
-		);
-		
-		$left_arr = array(
-				'index_index' 	=> '',
-				'promote_index' => array( 
-						'emailpush_manage' 	=> '',
-						'emailpush_add' 	=> '',
-				
-				),
-				
-				'activity_index' => array(
-						'likeactivity_index' 	=> '',
-						'likeactivity_user' 	=> '',
-						'likeactivity_content' 	=> '',
-						'likeactivity_addcontent' 	=> '',
-						'likeactivity_editcontent' 	=> '',
-				),
-		);
-		
-		foreach($left_arr as $k=>$v) {
-			if(is_array($v)) {
-				$isActive = false;
-				foreach($v as $_k => $_v) {
-					if(strtolower(CONTROLLER_NAME) . '_' . strtolower(ACTION_NAME) == $_k) {
-						$this->data['left_active'][$_k] = 'nav-active active';
-						$this->data['left_active'][$k . '_children'] = "style='display:block';";
-						$isActive = true;
-					} else {
-						if(!key_exists($k . '_children', $this->data['left_active'])) {
-							$this->data['left_active'][$k . '_children'] = '';
-						}
-					}
-				}
-				if($isActive) $this->data['left_active'][$k] = 'active';
-			} else {
-				$this->data['left_active'][$k] = ( strtolower(CONTROLLER_NAME) . '_' . strtolower(ACTION_NAME) == $k)?'active':'';
-			}
-		}
+		$this->data['admin'] = D('Admin')->where(array("{$MC['AdminModel']['_map']['id']}"=>session(self::ADMIN_SESSION_ID)))->find();
 		
 		/* assign */
 		$this->assign("data", $this->data);

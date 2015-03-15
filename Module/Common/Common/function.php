@@ -1,6 +1,6 @@
 <?php
 use Think\Log;
-use Common\Library\Model\Int;
+use Common\Library\Model\Int\AdminModelInterface;
 
 /**
  * 判断是否登陆.
@@ -11,6 +11,16 @@ use Common\Library\Model\Int;
  */
 function is_log($type = AdminModelInterface::ADMIN_SESSION_ID) {
 	if(session("?{$type}")) return true;
+	return false;
+}
+
+/**
+ * 获取当前登录的管理员ID.
+ * 
+ * @return mixed|boolean
+ */
+function get_admin_id($type = AdminModelInterface::ADMIN_SESSION_ID) {
+	if(session("?{$type}")) return session("{$type}");
 	return false;
 }
 
@@ -61,4 +71,17 @@ function login($username, $userpass, $type = AdminModelInterface::ADMIN_SESSION_
  */
 function get_now_time() {
 	return date("Y-m-d H:i:s", time());
+}
+
+
+/**
+ * Get config file.
+ *
+ * @param string $file
+ * @return multitype:|unknown
+ */
+function get_config($file = null) {
+	if(!isset($file))  return array();
+	$config = require_once dirname(dirname(dirname(dirname(__FILE__))))  . "/Conf/" . $file;
+	return $config;
 }

@@ -41,13 +41,27 @@ class LoginController extends CommonController{
 		}
 	}
 	
+	public function logOut() {
+		log_out(self::ADMIN_SESSION_ID);
+		$this->success(C("LOG_OUT_SUCCESSFULLY"), __MODULE__ . "/Login/index");
+	}
+	
 	public function forgotPassword() {
-		
 		$data['errCode'] = ErrorCode::ERROR_0_CODE;
 		$data['errMsg'] = ErrorCode::ERROR_0_MSG;
 		$data = json_encode($data,true);
 		echo $data;
 		return true;
+	}
+	
+	public function lock() {
+		$id = get_admin_id(self::ADMIN_SESSION_ID);
+		if(!$id) $this->redirect(__MODULE__ . "/Login/index");
+		log_out(self::ADMIN_SESSION_ID);
+		$MC = get_config("Model.ini.php");
+		$admin = D("Admin")->where(array("{$MC['AdminModel']['_map']['id']}"=>$id))->find();
+		$this->assign("admin", $admin);
+		$this->display();
 	}
 	
 }
