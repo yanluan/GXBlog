@@ -10,7 +10,9 @@ var Login = function() {
 	var rememberMe = function() {
 		if(isRemember == 'true') {
 			$('#remember').iCheck('check');
+			if($.cookie("ebes0csjd") != "null" && $.cookie("ebes0csjd") != "") 
 			$("#ebes0csjd-input").val($.cookie("ebes0csjd"));
+			if($.cookie("do98jf7hs") != "null" && $.cookie("do98jf7hs") != "") 
 			$("#do98jf7hs-input").val($.cookie("do98jf7hs"));
 		} else {
 			$('#remember').iCheck('uncheck');
@@ -26,6 +28,8 @@ var Login = function() {
 			}
 			if(status == 'unchecked') {
 				isRemember = false;
+				$.cookie("ebes0csjd",null);
+				$.cookie("do98jf7hs",null);
 				$.cookie("isRemember",isRemember);
 			}
 		});

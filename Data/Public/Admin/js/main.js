@@ -1,6 +1,7 @@
 var isIE8 = false, isIE9 = false, inner = $(".main-wrapper > .inner"), supportTransition = true, closedbar = $(".closedbar"), isMobile = false, isIEMobile = false, $body = $("body"), $windowWidth, $windowHeight, subViews = $(".subviews"), sideLeft = $('#pageslide-left'), sideRight = $('#pageslide-right'), mainNavigation = $('.main-navigation'), sidebarWidth = sideLeft.outerWidth(true), topBar = $(".topbar"), mainContainer = $(".main-container"), mainContent = $(".main-content"), footer = $(".main-wrapper > footer");
 var thisSlider, actualItemWidth, newItemWidth, activeAnimation = false, hoverSideBar = false;
 ;
+var _public_path = null;
 
 // Debounce Function
 (function($, sr) {"use strict";
@@ -1051,13 +1052,13 @@ var Main = function() {"use strict";
 				$('#skin_color').attr("rel", "stylesheet");
 
 			}
-			$('#skin_color').attr("href", "assets/css/themes/theme-" + $(this).attr('id') + ".css");
+			$('#skin_color').attr("href", _public_path + "/css/themes/theme-" + $(this).attr('id') + ".css");
 			switch ($(this).attr('id')) {
 				case "style3":
-					$(".navbar-brand img").attr("src", "assets/images/logo_dark.png");
+					$(".navbar-brand img").attr("src", _public_path + "/images/logo_dark.png");
 					break;
 				default:
-					$(".navbar-brand img").attr("src", "assets/images/logo.png");
+					$(".navbar-brand img").attr("src", _public_path + "/images/logo.png");
 					break;
 			};
 		});
@@ -1373,7 +1374,8 @@ var Main = function() {"use strict";
 	};
 	return {
 		//main function to initiate template pages
-		init: function() {
+		init: function(public_path) {
+			_public_path = public_path;
 			runWIndowResize();
 			runInit();
 			runToggleSideBars();

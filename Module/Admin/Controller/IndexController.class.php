@@ -9,6 +9,6 @@ class IndexController extends CommonController	{
 	}
 	
 	public function index() {
-		echo 'a';
+		$this->display();
 	}
 }
