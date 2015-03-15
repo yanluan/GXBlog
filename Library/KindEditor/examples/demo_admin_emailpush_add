@@ -1,0 +1,76 @@
+<?php
+<!-- header -->
+<!-- header -->
+<!-- header -->
+
+<!-- KindEditor -->
+<link rel="stylesheet" href="__KINDEDITOR__/themes/default/default.css" />
+<link rel="stylesheet" href="__KINDEDITOR__/plugins/code/prettify.css" />
+<!--/ KindEditor -->
+
+<!-- main -->
+<!-- main -->
+<!-- main -->
+
+<div class="form-group">
+	<label class="col-sm-3 control-label">{:C('EAMILPUSH_ADD_CONTENT')}</label>
+	<div class="col-sm-7">
+	<textarea name="content" class="form-control" style="width:100%;" rows="20" ></textarea>
+	</div>
+</div>
+
+<!-- footer -->
+<!-- footer -->
+<!-- footer -->
+
+<!-- KindEditor -->
+<script charset="utf-8" src="__KINDEDITOR__/kindeditor.js"></script>
+<script charset="utf-8" src="__KINDEDITOR__/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__KINDEDITOR__/plugins/code/prettify.js"></script>
+<!--/ KindEditor -->
+<script>
+jQuery(document).ready(function(){
+	// common vars
+	var _kindeditor = null;
+
+	// submit button
+	jQuery("#submit-button").click(function() {
+		_kindeditor.sync();
+		jQuery("form[name=form]")[0].submit();
+	});
+
+	// KindEditor
+	KindEditor.ready(function(K) {
+		var editor1 = K.create('textarea[name="content"]', {
+			cssPath : '__KINDEDITOR__/plugins/code/prettify.css',
+			uploadJson : '__KINDEDITOR__/php/upload_json.php',
+			fileManagerJson : '__KINDEDITOR__/php/file_manager_json.php',
+			allowFileManager : true,
+			items : [
+			'fullscreen','source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+			'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+			'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+			'superscript', 'clearhtml', 'quickformat', 'selectall', '|',
+			'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+			'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+			'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+			'anchor', 'link', 'unlink', '|', 'about'
+					],
+					afterCreate : function() {
+						var self = this;
+						_kindeditor = this;
+						K.ctrl(document, 13, function() {
+							self.sync();
+							K('form[name=form]')[0].submit();
+						});
+						K.ctrl(self.edit.doc, 13, function() {
+							self.sync();
+							K('form[name=form]')[0].submit();
+						});
+					}
+		});
+		prettyPrint();
+	});
+
+});
+</script>
