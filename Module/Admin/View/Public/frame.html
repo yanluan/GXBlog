@@ -48,7 +48,10 @@
 		<script>
 			jQuery(document).ready(function() {
 				var public_path = '__PUBLIC__';
-				Main.init(public_path);
+				var cn = '{:C("LOAD_EXT_CONFIG")}';
+				if(cn == "lang-cn") cn = true;
+				else cn = false;
+				Main.init(public_path,cn);
 				SVExamples.init();
 			});
 		</script>

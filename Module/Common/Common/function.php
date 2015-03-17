@@ -85,3 +85,11 @@ function get_config($file = null) {
 	$config = require_once dirname(dirname(dirname(dirname(__FILE__))))  . "/Conf/" . $file;
 	return $config;
 }
+
+/**
+ * 打印函数.
+ * 
+ */
+function p($v) {
+	echo "<pre>" . print_r($v,true) . "</pre>";
+}

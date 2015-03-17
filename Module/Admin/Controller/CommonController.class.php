@@ -61,10 +61,49 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 		/* current user */
 		$this->data['admin'] = D('Admin')->where(array("{$MC['AdminModel']['_map']['id']}"=>session(self::ADMIN_SESSION_ID)))->find();
 		
+		/* pageslide left */
+		$pageSlideLeft = $this->_getPageSlideLeft();
+		
+		$this->data['pageSlideLeft'] = $pageSlideLeft;
+		
 		/* assign */
 		$this->assign("data", $this->data);
 	}
 	
+	/**
+	 * 获取左侧边栏数据.
+	 * 
+	 */
+	private function _getPageSlideLeft() {
+		$data = C("ADMIN_CONTROLLER_MAP");
+		$result = '';
+		foreach($data as $k=>$v) {
+			if(!count($v['sub_map'])){ // 无子菜单
+				$_result = "<li><a href=\"".__MODULE__."/{$v['controller']}/{$v['action']}\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span></a></li>";
+			} else { //　有子菜单
+				$result_1 = "<li><a href=\"javascript:void(0);\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span><i class=\"icon-arrow\"></i></a>";
+				$result_2 = $this->_getSubPageSlideLfet($v['sub_map']);
+				$_result = $result_1 . $result_2 . "</li>";
+			}
+			$result .= $_result;
+		}
+		return $result;
+	}
+	
+	private function _getSubPageSlideLfet($data) {
+		$result = "<ul class=\"sub-menu\">";
+		foreach($data as $k => $v) {
+			if(!count($v['sub_map'])) { // 无子菜单
+				$result .= "<li><a href=\"".__MODULE__."/{$v['controller']}/{$v['action']}\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span></a></li>";
+			} else { // 有子菜单
+				$result_1 = "<li><a href=\"javascript:void(0);\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span><i class=\"icon-arrow\"></i></a>";
+				$result_2 = $this->_getSubPageSlideLfet($v['sub_map']);
+				$result .= $result_1 . $result_2 . "</li>";
+			}
+		}
+		$result = $result . "</ul>";
+		return $result;
+	}
 
 	/**
 	 * 上传文件.

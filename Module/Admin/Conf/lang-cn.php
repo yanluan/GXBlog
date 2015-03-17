@@ -2,18 +2,46 @@
 return array (
 
 	    /* Action name of controller */
-		'LOGIN_INDEX_NAME' 			=> '登录',
-		'INDEX_INDEX_NAME' 			=> '起始页',
-		'PROMOTE_INDEX_NAME'  		=> '推广',
-		'EMAILPUSH_MANAGE_NAME'   	=> '邮件推送',
-		'EMAILPUSH_ADD_NAME' 		=> '增加邮件推送任务',
+		'ADMIN_CONTROLLER_MAP' => array(
+			1 => array(
+					'name' => '起始页',
+					'controller' => 'Index',
+					'action' => 'index',
+					'icon_class' => 'fa fa-home',
+					'sub_map' => array(),
+			),
+			2 => array(
+						'name' => '内容',
+						'action' => 'index',
+						'controller' => 'Content',
+						'icon_class' => 'fa fa-archive',
+						'sub_map' => array(
+								1 => array(
+										'name' => '文章',
+										'controller' => 'Post',
+										'action' => 'index',
+										'icon_class' => 'fa fa-book',
+										'sub_map' => array(
+												1 => array(
+														'name' => '管理文章',
+														'controller' => 'Post',
+														'action' => 'manage',
+														'icon_class' => 'fa fa-bars',
+														'sub_map' => array(),
+												),
+												2 => array(
+														'name' => '撰写新文章',
+														'controller' => 'Post',
+														'action' => 'add',
+														'icon_class' => 'fa fa-pencil-square-o',
+														'sub_map' => array(),
+												),
+										),
+								),
+						),
+			),
+		),
 		
-		'ACTIVITY_INDEX_NAME'			=> '活动',
-		'LIKEACTIVITY_INDEX_NAME'		=> '点赞活动',
-		'LIKEACTIVITY_USER_NAME'		=> '用户管理',
-		'LIKEACTIVITY_CONTENT_NAME'		=> '内容管理',
-		'LIKEACTIVITY_ADDCONTENT_NAME'	=> '增加内容',
-		'LIKEACTIVITY_EDITCONTENT_NAME'	=> '编辑内容',
 		
 		/* top bar tpl */
 		'MY_PROFILE' => '个人资料',
@@ -25,7 +53,7 @@ return array (
 		'ILLEGAL_WELCOME'	=> '抱歉，您的版本不是完整版，请联系管理员！',
 		
 		/* Login controller */
-		'WELCOME' 				=> '欢迎您来到<em>GXBlog</em>系统后台！',
+		'LOGIN_WELCOME' 		=> '欢迎您来到<em>GXBlog</em>系统后台！',
 		'WELCOME_SUB'  			=> '请输入您的用户名和密码来登陆。',
 		'FORGOT_PASSWORD'  		=> '忘记密码?',
 		'KEEP_SIGNED'			=> '记住我',
@@ -37,6 +65,8 @@ return array (
 		'EMAIL_SENT'			=> "重置密码已发送到指定邮箱，请查收！",
 		'EMAIL_NOT_SENT'		=> "邮件地址错误，请检查后再试。",
 		'LOG_OUT_SUCCESSFULLY'  => "登出成功",
+		'TO_UNLOCK'				=> "请输入密码解锁",
+		'NOT_ME'				=> "我不是",
 		
 		/* Index controller */
 		

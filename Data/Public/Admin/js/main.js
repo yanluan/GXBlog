@@ -2,7 +2,7 @@ var isIE8 = false, isIE9 = false, inner = $(".main-wrapper > .inner"), supportTr
 var thisSlider, actualItemWidth, newItemWidth, activeAnimation = false, hoverSideBar = false;
 ;
 var _public_path = null;
-
+var _cn = true;
 // Debounce Function
 (function($, sr) {"use strict";
 	// debouncing function from John Hann
@@ -1340,10 +1340,16 @@ var Main = function() {"use strict";
 	var runStatusButton = function() {
 		$(".btn.status").on("click", function(e) {
 			if($(this).hasClass("offline")) {
+				if(_cn) 
+				$(this).removeClass("offline").find("span").text("在线");
+				else 
 				$(this).removeClass("offline").find("span").text("Online");
-
 			} else {
+				if(_cn)
+				$(this).addClass("offline").find("span").text("离线");
+				else
 				$(this).addClass("offline").find("span").text("Offline");
+					
 			}
 			e.preventDefault();
 		});
@@ -1374,8 +1380,9 @@ var Main = function() {"use strict";
 	};
 	return {
 		//main function to initiate template pages
-		init: function(public_path) {
+		init: function(public_path,cn) {
 			_public_path = public_path;
+			_cn = cn;
 			runWIndowResize();
 			runInit();
 			runToggleSideBars();

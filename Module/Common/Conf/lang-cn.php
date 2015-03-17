@@ -6,6 +6,11 @@ return array (
 		'PASSWORD' => '密码',
 		'SUBMIT' => '提交',
 		'EMAIL' => '邮件',
+		'WELCOME' => '欢迎您',
+		'DASHBOARD' => '起始页',
+		'ONLINE' => '在线',
+		'OFFLINE' => '离线',
+		'STATUS' => '状态',
 		
 		/* APP INFO */
 		'APP_VERSION' => '版本 2.0.0_dev',
