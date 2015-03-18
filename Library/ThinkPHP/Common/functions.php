@@ -619,8 +619,10 @@ function D($name = '', $layer = '') {
  * @param mixed $connection
  *        	数据库连接信息
  * @return Model
+ * @deprecated
  */
 function M($name = '', $tablePrefix = '', $connection = '') {
+	if(C("M_DEPRECATED")) die("M method is deprecated.");
 	$db_table_map = C("DB_TABLE_MAP");
 	if(isset($db_table_map[$name])) $name = $db_table_map[$name];
 	static $_model = array ();

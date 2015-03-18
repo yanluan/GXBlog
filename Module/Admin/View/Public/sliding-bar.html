@@ -3,38 +3,46 @@
 				<div class="row">
 					<!-- start: SLIDING BAR FIRST COLUMN -->
 					<div class="col-md-4 col-sm-4">
-						<h2>My Options</h2>
+						<h2>{:C("QUICK_ENTRANCE")}</h2>
 						<div class="row">
 							<div class="col-xs-6 col-lg-3">
-								<button class="btn btn-icon btn-block space10">
-									<i class="fa fa-folder-open-o"></i>
-									Projects <span class="badge badge-info partition-red"> 4 </span>
-								</button>
+								<a href="__MODULE__/Post/add">
+									<button class="btn btn-icon btn-block space10">
+										<i class="fa fa-book"></i>
+										{:C("NEW_POST")} 
+									</button>
+								</a>
 							</div>
 							<div class="col-xs-6 col-lg-3">
-								<button class="btn btn-icon btn-block space10">
-									<i class="fa fa-envelope-o"></i>
-									Messages <span class="badge badge-info partition-red"> 23 </span>
-								</button>
+								<a href="__MODULE__/Page/add">
+									<button class="btn btn-icon btn-block space10">
+										<i class="fa fa-file-text-o"></i>
+										{:C("NEW_PAGE")} 
+									</button>
+								</a>
 							</div>
 							<div class="col-xs-6 col-lg-3">
-								<button class="btn btn-icon btn-block space10">
-									<i class="fa fa-calendar-o"></i>
-									Calendar <span class="badge badge-info partition-blue"> 5 </span>
-								</button>
+								<a href="__MODULE__/Comment/manage">
+									<button class="btn btn-icon btn-block space10">
+										<i class="fa fa-comments-o"></i>
+										{:C("LAST_REPLY")} <span class="badge badge-info partition-red"> 8 </span>
+									</button>
+								</a>
 							</div>
 							<div class="col-xs-6 col-lg-3">
-								<button class="btn btn-icon btn-block space10">
-									<i class="fa fa-bell-o"></i>
-									Notifications <span class="badge badge-info partition-red"> 9 </span>
-								</button>
+								<a href="__MODULE__/Site/index">
+									<button class="btn btn-icon btn-block space10">
+										<i class="fa  fa-desktop"></i>
+										{:C("SETTING_SITE")}
+									</button>
+								</a>
 							</div>
 						</div>
 					</div>
 					<!-- end: SLIDING BAR FIRST COLUMN -->
 					<!-- start: SLIDING BAR SECOND COLUMN -->
 					<div class="col-md-4 col-sm-4">
-						<h2>My Recent Works</h2>
+						<h2>{:C("LAST_REPLY")}</h2>
 						<div class="blog-photo-stream margin-bottom-30">
 							<ul class="list-unstyled">
 								<li>
@@ -73,21 +81,17 @@
 					<!-- end: SLIDING BAR SECOND COLUMN -->
 					<!-- start: SLIDING BAR THIRD COLUMN -->
 					<div class="col-md-4 col-sm-4">
-						<h2>My Info</h2>
+						<h2>{:C("MY_PROFILE")}</h2>
 						<address class="margin-bottom-40">
-							Peter Clark
-							<br>
-							12345 Street Name, City Name, United States
-							<br>
-							P: (641)-734-4763
-							<br>
-							Email:
-							<a href="#">
-								peter.clark@example.com
+							{$data['admin']['nickname']}
+							<br><br>						
+							{:C("EMAIL")}:
+							<a href="javascript:void(0);">
+							{$data['admin']['email']}
 							</a>
 						</address>
-						<a class="btn btn-transparent-white" href="#">
-							<i class="fa fa-pencil"></i> Edit
+						<a class="btn btn-transparent-white" href="__MODULE__/Profile/edit">
+							<i class="fa fa-pencil"></i> {:C("EDIT")}
 						</a>
 					</div>
 					<!-- end: SLIDING BAR THIRD COLUMN -->

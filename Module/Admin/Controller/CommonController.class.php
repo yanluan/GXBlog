@@ -92,7 +92,10 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 		}
 		return $result;
 	}
-	
+	/**
+	 * 获取左侧边栏数据[递归].
+	 *
+	 */
 	private function _getSubPageSlideLfet($data) {
 		$result = "<ul class=\"sub-menu\">";
 		foreach($data as $k => $v) {
@@ -112,6 +115,12 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 		return $result;
 	}
 	
+	/**
+	 * 是否有sub_map数组[递归]
+	 * 
+	 * @param array $data
+	 * @return boolean
+	 */
 	private function _isHaveSubMap($data){
 		$isHave = false;
 		foreach ($data as $k => $v) {

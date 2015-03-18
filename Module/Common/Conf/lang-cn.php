@@ -12,6 +12,11 @@ return array (
 		'OFFLINE' => '离线',
 		'STATUS' => '状态',
 		'ADMIN' => '后台',
+		'EDIT' => '编辑',
+		'ARTICLE' => '文章',
+		'PAGE' => '页面',
+		'CATEGORY' => '栏目',
+		'SITE' => '网站',
 		
 		/* APP INFO */
 		'APP_VERSION' => '版本 2.0.0_dev',

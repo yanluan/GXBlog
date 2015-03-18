@@ -100,6 +100,8 @@ return array (
 		'DATA_CACHE_SUBDIR'     =>  false,    // 使用子目录缓存 (自动根据缓存标识的哈希创建子目录)
 		'DATA_PATH_LEVEL'       =>  1,        // 子目录缓存级别
 
+		// TP框架扩展配置[ThinkPHP framework configuration]
+		'M_DEPRECATED' 			=> ture, // 禁用M方法
 		
 		//============//
 		//Admin module//

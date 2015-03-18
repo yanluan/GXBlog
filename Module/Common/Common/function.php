@@ -60,7 +60,7 @@ function log_out($type = null) {
  * @return boolean
  */
 function login($username, $userpass, $type = AdminModelInterface::ADMIN_SESSION_ID) {
-	$data = M('admin')->field('id')->where(array('account'=>$username, 'password'=>$userpass))->find();
+	$data = D('admin')->field('id')->where(array('account'=>$username, 'password'=>$userpass))->find();
 	if(count($data) > 0) return set_log($type, $data['id']);
 	return false;
 }
@@ -82,7 +82,7 @@ function get_now_time() {
  */
 function get_config($file = null) {
 	if(!isset($file))  return array();
-	$config = require_once dirname(dirname(dirname(dirname(__FILE__))))  . "/Conf/" . $file;
+	$config = require dirname(dirname(dirname(dirname(__FILE__))))  . "/Conf/" . $file;
 	return $config;
 }
 

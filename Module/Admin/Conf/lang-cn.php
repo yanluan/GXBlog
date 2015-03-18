@@ -128,6 +128,13 @@ return array (
 		'MY_MESSAGES' => '消息中心',
 		'LOCK_SCREEN' => '锁定后台',
 		'LOG_OUT' => '退出',
+		'QUICK_ENTRANCE' => '快捷入口',
+		'LAST_REPLY' => '最新回复',
+		'NEW_POST' => '新增文章', 
+		'NEW_PAGE' => '新增页面',
+		'NEW_CATEGORY' => '新增栏目',
+		'SETTING_SITE' => 'SEO设置',
+		
 		
 		/* Illegal Controller */
 		'ILLEGAL_WELCOME'	=> '抱歉，您的版本不是完整版，请联系管理员！',
