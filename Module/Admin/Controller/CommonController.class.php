@@ -79,9 +79,12 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 		$result = '';
 		foreach($data as $k=>$v) {
 			if(!count($v['sub_map'])){ // 无子菜单
-				$_result = "<li><a href=\"".__MODULE__."/{$v['controller']}/{$v['action']}\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span></a></li>";
+				if(CONTROLLER_NAME == $v['controller'] && ACTION_NAME == $v['action']) $class = "class = \"active open\"";
+				$_result = "<li {$class} ><a href=\"".__MODULE__."/{$v['controller']}/{$v['action']}\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span></a></li>";
 			} else { //　有子菜单
-				$result_1 = "<li><a href=\"javascript:void(0);\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span><i class=\"icon-arrow\"></i></a>";
+				$isHave = $this->_isHaveSubMap($v['sub_map']);
+				if($isHave) $class = "class = \"active open\""; else $class = "";
+				$result_1 = "<li {$class} ><a href=\"javascript:void(0);\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span><i class=\"icon-arrow\"></i></a>";
 				$result_2 = $this->_getSubPageSlideLfet($v['sub_map']);
 				$_result = $result_1 . $result_2 . "</li>";
 			}
@@ -93,16 +96,39 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 	private function _getSubPageSlideLfet($data) {
 		$result = "<ul class=\"sub-menu\">";
 		foreach($data as $k => $v) {
+			$class = "";
 			if(!count($v['sub_map'])) { // 无子菜单
-				$result .= "<li><a href=\"".__MODULE__."/{$v['controller']}/{$v['action']}\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span></a></li>";
+				if(CONTROLLER_NAME == $v['controller'] && ACTION_NAME == $v['action']) $class = "class = \"active open\"";
+				$result .= "<li {$class} ><a href=\"".__MODULE__."/{$v['controller']}/{$v['action']}\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span></a></li>";
 			} else { // 有子菜单
-				$result_1 = "<li><a href=\"javascript:void(0);\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span><i class=\"icon-arrow\"></i></a>";
+				$isHave = $this->_isHaveSubMap($v['sub_map']);
+				if($isHave) $class = "class = \"active open\""; else $class = "";
+				$result_1 = "<li {$class} ><a href=\"javascript:void(0);\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span><i class=\"icon-arrow\"></i></a>";
 				$result_2 = $this->_getSubPageSlideLfet($v['sub_map']);
 				$result .= $result_1 . $result_2 . "</li>";
 			}
 		}
 		$result = $result . "</ul>";
 		return $result;
+	}
+	
+	private function _isHaveSubMap($data){
+		$isHave = false;
+		foreach ($data as $k => $v) {
+			if(count($v['sub_map'])) {
+				// 有子菜单
+				$isHave = $this->_isHaveSubMap($v['sub_map']);
+				if($isHave) return $isHave;
+			} else{
+				// 没有子菜单
+				if(CONTROLLER_NAME == $v['controller'] && ACTION_NAME == $v['action']) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**

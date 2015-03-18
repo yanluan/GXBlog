@@ -26,7 +26,7 @@ return array (
 														'name' => '管理文章',
 														'controller' => 'Post',
 														'action' => 'manage',
-														'icon_class' => 'fa fa-bars',
+														'icon_class' => 'fa fa-list-ol',
 														'sub_map' => array(),
 												),
 												2 => array(
@@ -38,10 +38,90 @@ return array (
 												),
 										),
 								),
+								2 => array(
+										'name' => '页面',
+										'controller' => 'Page',
+										'action' => 'index',
+										'icon_class' => 'fa fa-file-text-o',
+										'sub_map' => array(
+												1 => array(
+														'name' => '页面管理',
+														'controller' => 'Page',
+														'action' => 'manage',
+														'icon_class' => 'fa fa-list-ol',
+														'sub_map' => array(),
+												),
+												2 => array(
+														'name' => '新增页面',
+														'controller' => 'Page',
+														'action' => 'add',
+														'icon_class' => 'fa fa-pencil-square-o',
+														'sub_map' => array(),
+												),
+										),
+								),
+								3 => array(
+										'name' => '栏目',
+										'controller' => 'Category',
+										'action' => 'index',
+										'icon_class' => 'fa fa-th-list',
+										'sub_map' => array(
+												1 => array(
+														'name' => '栏目管理',
+														'controller' => 'Category',
+														'action' => 'manage',
+														'icon_class' => 'fa fa-list-ol',
+														'sub_map' => array(),
+												),
+												2 => array(
+														'name' => '新增栏目',
+														'controller' => 'Category',
+														'action' => 'add',
+														'icon_class' => 'fa fa-pencil-square-o',
+														'sub_map' => array(),
+												),
+										),
+								),
 						),
 			),
+			3 => array(
+						'name' => '反馈',
+						'action' => 'index',
+						'controller' => 'Feedback',
+						'icon_class' => 'fa fa-envelope-o',
+						'sub_map' => array(
+								1 => array(
+										'name' => '留言',
+										'controller' => 'Comment',
+										'action' => 'manage',
+										'icon_class' => 'fa fa-comments-o',
+										'sub_map' => array(),
+						),
+				),
+			),
+			4 => array(
+						'name' => '设置',
+						'action' => 'index',
+						'controller' => 'Setting',
+						'icon_class' => 'fa fa-cogs',
+						'sub_map' => array(
+								1 => array(
+										'name' => '网站',
+										'controller' => 'Site',
+										'action' => 'index',
+										'icon_class' => 'fa  fa-desktop',
+										'sub_map' => array(),
+								),
+								2 => array(
+										'name' => '个人资料',
+										'controller' => 'Profile',
+										'action' => 'index',
+										'icon_class' => 'fa fa-user',
+										'sub_map' => array(),
+								),
+				),
+			),
 		),
-		
 		
 		/* top bar tpl */
 		'MY_PROFILE' => '个人资料',

@@ -11,8 +11,10 @@ return array (
 		'ONLINE' => '在线',
 		'OFFLINE' => '离线',
 		'STATUS' => '状态',
+		'ADMIN' => '后台',
 		
 		/* APP INFO */
 		'APP_VERSION' => '版本 2.0.0_dev',
 		'COPYRIGHT' => '2014-2015 &copy; <a href="http://www.echenxin.com" target="_blank">沈阳晨信网络科技有限公司</a>.',
+		'APP_NAME' => 'GXBlog',
 );
