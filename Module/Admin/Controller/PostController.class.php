@@ -12,5 +12,7 @@ class PostController extends CommonController {
 	public function manage() {
 		$this->display();
 	}
-	public function add() {}
+	public function add() {
+		$this->display();
+	}
 }

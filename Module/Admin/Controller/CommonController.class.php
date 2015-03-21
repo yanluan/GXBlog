@@ -62,9 +62,10 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 		$this->data['admin'] = D('Admin')->where(array("{$MC['AdminModel']['_map']['id']}"=>session(self::ADMIN_SESSION_ID)))->find();
 		
 		/* pageslide left */
-		$pageSlideLeft = $this->_getPageSlideLeft();
+		$this->data['pageSlideLeft'] = $this->_getPageSlideLeft();
 		
-		$this->data['pageSlideLeft'] = $pageSlideLeft;
+		/* Location */
+		$this->data['location'] = $this->_getLocation();
 		
 		/* assign */
 		$this->assign("data", $this->data);
@@ -115,30 +116,79 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 		return $result;
 	}
 	
+
 	/**
-	 * 是否有sub_map数组[递归]
-	 * 
+	 * [递归]获取当前位置所在位置数组的一维下标.
+	 *
 	 * @param array $data
 	 * @return boolean
 	 */
 	private function _isHaveSubMap($data){
-		$isHave = false;
 		foreach ($data as $k => $v) {
-			if(count($v['sub_map'])) {
-				// 有子菜单
-				$isHave = $this->_isHaveSubMap($v['sub_map']);
-				if($isHave) return $isHave;
-			} else{
-				// 没有子菜单
-				if(CONTROLLER_NAME == $v['controller'] && ACTION_NAME == $v['action']) {
-					return true;
-				} else {
-					return false;
-				}
+			if($v['controller'] == CONTROLLER_NAME && $v['action'] == ACTION_NAME) {
+				return true;
+			} else if(count($v['sub_map'])) {
+				return $this->_isHaveSubMap($v['sub_map']);
 			}
 		}
 		return false;
 	}
+	
+	
+	/**
+	 * 获取当前位置数据.
+	 * 
+	 */
+	private function _getLocation() {
+		$data = C("ADMIN_CONTROLLER_MAP");
+		$index = 0;
+		
+		/* Get location arr index */
+		foreach ($data as $k => $v) {
+			$_data = array(1 => $v);	
+			$index++;
+			if($this->_isHaveSubMap($_data) == true) {
+				break;
+			}
+		}
+		/* Get location string */
+		$location = $data[$index]['name'];
+		if(count($data[$index]['sub_map'])) {
+				$location .= $this->_getLocationString($data[$index]['sub_map']);
+		}
+		
+		/* Return */
+		$result['locationString'] = $location;
+		$result['currentName'] = $data[$index]['name'];
+		return $result;
+	}
+
+	
+	/**
+	 * [递归]根据当前位置获取位置字符串.
+	 * 
+	 * @param unknown $data
+	 * @return string
+	 */
+	private function _getLocationString($data) {
+		$location = "";
+		$once = false;
+		foreach($data as $k => $v) {
+			$_index = $this->_isHaveSubMap($v['sub_map']);
+			$__index = ($v['action'] == ACTION_NAME && $v['controller'] == CONTROLLER_NAME)?true:false;
+			if($_index == true || $__index == true) {
+				$once = true;
+				$location = " & " . $v['name'];
+				if(count($v['sub_map'])) {
+					return $location . $this->_getLocationString($v['sub_map']);
+				} else {
+					return $location;
+				}
+			}
+			if($once == true) break;
+		}
+	}
+	
 
 	/**
 	 * 上传文件.

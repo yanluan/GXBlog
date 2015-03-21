@@ -12,8 +12,8 @@ return array (
 			),
 			2 => array(
 						'name' => '内容',
-						'action' => 'index',
 						'controller' => 'Content',
+						'action' => 'index',
 						'icon_class' => 'fa fa-archive',
 						'sub_map' => array(
 								1 => array(
