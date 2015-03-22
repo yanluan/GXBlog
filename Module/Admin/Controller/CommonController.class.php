@@ -80,6 +80,7 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 		$result = '';
 		foreach($data as $k=>$v) {
 			if(!count($v['sub_map'])){ // 无子菜单
+				$class = "";
 				if(CONTROLLER_NAME == $v['controller'] && ACTION_NAME == $v['action']) $class = "class = \"active open\"";
 				$_result = "<li {$class} ><a href=\"".__MODULE__."/{$v['controller']}/{$v['action']}\"><i class=\"{$v['icon_class']}\"></i> <span class=\"title\">{$v['name']} </span></a></li>";
 			} else { //　有子菜单
@@ -152,14 +153,15 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 			}
 		}
 		/* Get location string */
-		$location = $data[$index]['name'];
-		if(count($data[$index]['sub_map'])) {
-				$location .= $this->_getLocationString($data[$index]['sub_map']);
-		}
+		$v = array(
+				1 => $data[$index],
+		);
+		$_location = $this->_getLocationString($v,true);
 		
 		/* Return */
-		$result['locationString'] = $location;
-		$result['currentName'] = $data[$index]['name'];
+		$result['locationString'] = $_location['locationString'];
+		$result['lastName'] = $_location['lastName'];
+		$result['firstName'] = $_location['firstName'];
 		return $result;
 	}
 
@@ -170,17 +172,28 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 	 * @param unknown $data
 	 * @return string
 	 */
-	private function _getLocationString($data) {
-		$location = "";
+	private function _getLocationString($data, $firstLevel = false) {
+		$location = array();
 		$once = false;
 		foreach($data as $k => $v) {
 			$_index = $this->_isHaveSubMap($v['sub_map']);
 			$__index = ($v['action'] == ACTION_NAME && $v['controller'] == CONTROLLER_NAME)?true:false;
+			if($__index == true) $location['lastName'] = $v['name'];
 			if($_index == true || $__index == true) {
 				$once = true;
-				$location = " & " . $v['name'];
+				$location['locationString'] = " & " . $v['name'];
+				$location['firstName'] = "";
+				if($firstLevel == true) 
+				{
+					$location['locationString'] = ltrim($location['locationString']," & ");
+					$location['firstName'] = $v['name'];
+				}
 				if(count($v['sub_map'])) {
-					return $location . $this->_getLocationString($v['sub_map']);
+					$rs = $this->_getLocationString($v['sub_map']);
+					$location['locationString'] .= $rs['locationString'];
+					$location['lastName'] 		= $rs['lastName'];
+					if(!isset($location['firstName'])) $location['firstName'] = $rs['firstName'];
+					return $location;
 				} else {
 					return $location;
 				}
@@ -303,7 +316,7 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 		$table 		= (isset($table))?$table:$this->_getTable();
 		$Data 		= D($table); // 实例化数据对象
 		$count      = $Data->where($this->map)->count();// 查询满足要求的总记录数 $map表示查询条件
-		$Page       = new \Admin\Library\Util\Page($count, C('MANAGE_PAGE_ITEM_COUNT'));// 实例化分页类 传入总记录数
+		$Page       = new \Common\Library\Util\Page($count, C('MANAGE_PAGE_ITEM_COUNT'));// 实例化分页类 传入总记录数
 		$Page->setConfig('theme', "%totalRow% %header% %nowPage%/%totalPage% 页 %upPage% %downPage% %first% %prePage% %linkPage% %nextPage% %end%");
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询
@@ -357,7 +370,7 @@ abstract class CommonController extends Controller implements AdminModelInterfac
 	 */
 	protected function _getTable() {
 		$controller = $this->_getController();
-		$C2M = new \Admin\Library\Util\Controller2Model();
+		$C2M = new \Common\Library\Util\Controller2Model();
 		return $C2M->{$controller};
 	}
 	

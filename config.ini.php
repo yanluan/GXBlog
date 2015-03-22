@@ -22,7 +22,7 @@ return array (
 		'UPLOAD_DIR'			=> '/Data/Upload', // 上传文件夹，可配合ROOT_PATH或SITE_URL使用
 		'ROOT_PATH' 			=> dirname(__FILE__), // 跟路径
 		'READ_DATA_MAP'			=> true,  // 自动数据表字段映射
-		'SHOW_PAGE_TRACE' 		=> false, // PAGE TRACE
+		'SHOW_PAGE_TRACE' 		=> true, // PAGE TRACE
 		
 		// 数据库配置信息[Database config]
 		'DB_TYPE' => 'mysqli', // 数据库类型
@@ -54,6 +54,11 @@ return array (
 				'Comment' 				=> 'Comment',
 				'page' 					=> 'page',
 				'Page' 					=> 'Page',
+		),
+		
+		// 控制器模型映射
+		'CONTROLLER_MODEL_MAP' => array(
+			'Post' => 'Post',
 		),
 		 
 		// 表单令牌验证[Form validate]

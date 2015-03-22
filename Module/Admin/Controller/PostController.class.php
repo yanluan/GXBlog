@@ -9,9 +9,10 @@ class PostController extends CommonController {
 		$this->_assign();
 	}
 	
-	public function manage() {
-		$this->display();
+	public function manage($isRelation = true, $table ='Post') {
+		parent::manage($isRelation,$table);
 	}
+	
 	public function add() {
 		$this->display();
 	}

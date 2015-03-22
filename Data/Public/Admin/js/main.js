@@ -1259,7 +1259,7 @@ var Main = function() {"use strict";
 			};
 			espressoSetting.skinClass = $('#skin_color').attr('href');
 
-			$.cookie("espresso-setting", JSON.stringify(espressoSetting));
+			$.cookie("espresso-setting", JSON.stringify(espressoSetting), { path: '/Admin' });
 
 			var el = $('#style_selector_container');
 			el.block({
