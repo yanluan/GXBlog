@@ -17,6 +17,15 @@ return array (
 		'PAGE' => '页面',
 		'CATEGORY' => '栏目',
 		'SITE' => '网站',
+		'SAVE' => '保存',
+		'PHOTO' => '图像',
+		'TITLE' => '标题',
+		'CATEGORY' => '分类',
+		'DELETE' => '删除',
+		'COLLAPSE' => '收起',
+		'FULLSCREEN' => '全屏',
+		'EXPAND' => '展开',
+		
 		
 		/* APP INFO */
 		'APP_VERSION' => '版本 2.0.0_dev',

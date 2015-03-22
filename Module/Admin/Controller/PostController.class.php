@@ -16,4 +16,8 @@ class PostController extends CommonController {
 	public function add() {
 		$this->display();
 	}
+	
+	protected function _dispose($data) {
+		return $data;
+	}
 }

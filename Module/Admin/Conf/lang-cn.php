@@ -135,6 +135,8 @@ return array (
 		'NEW_CATEGORY' => '新增栏目',
 		'SETTING_SITE' => 'SEO设置',
 		
+		/* Common */
+		'ONE_KEY_DELETE' => '一键删除',
 		
 		/* Illegal Controller */
 		'ILLEGAL_WELCOME'	=> '抱歉，您的版本不是完整版，请联系管理员！',
@@ -157,6 +159,8 @@ return array (
 		
 		/* Index controller */
 		
+		/* Post manage */
+		'COMMENT_COUNT' => '回复数',
+		'POST_CREATE_TIME' => '撰写时间',
 		
-
 );

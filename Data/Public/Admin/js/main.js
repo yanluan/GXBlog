@@ -3,6 +3,7 @@ var thisSlider, actualItemWidth, newItemWidth, activeAnimation = false, hoverSid
 ;
 var _public_path = null;
 var _cn = true;
+var _lang = null;
 // Debounce Function
 (function($, sr) {"use strict";
 	// debouncing function from John Hann
@@ -428,11 +429,11 @@ var Main = function() {"use strict";
 			var bodyPanel = jQuery(this).parent().closest(".panel").children(".panel-body");
 			if($(this).hasClass("collapses")) {
 				bodyPanel.slideUp(200, function() {
-					el.addClass("expand").removeClass("collapses").children("span").text("Expand").end().children("i").addClass("fa-rotate-180");
+					el.addClass("expand").removeClass("collapses").children("span").text(_lang.expand).end().children("i").addClass("fa-rotate-180");
 				});
 			} else {
 				bodyPanel.slideDown(200, function() {
-					el.addClass("collapses").removeClass("expand").children("span").text("Collapse").end().children("i").removeClass("fa-rotate-180");
+					el.addClass("collapses").removeClass("expand").children("span").text(_lang.collapse).end().children("i").removeClass("fa-rotate-180");
 				});
 			}
 		});
@@ -1380,9 +1381,10 @@ var Main = function() {"use strict";
 	};
 	return {
 		//main function to initiate template pages
-		init: function(public_path,cn) {
+		init: function(public_path,cn,lang) {
 			_public_path = public_path;
 			_cn = cn;
+			_lang = lang;
 			runWIndowResize();
 			runInit();
 			runToggleSideBars();

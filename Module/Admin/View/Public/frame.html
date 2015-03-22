@@ -51,9 +51,18 @@
 				var cn = '{:C("LOAD_EXT_CONFIG")}';
 				if(cn == "lang-cn") cn = true;
 				else cn = false;
-				Main.init(public_path,cn);
+				// Get lang object.
+				var lang = getLang();
+				Main.init(public_path,cn,lang);
 				SVExamples.init();
 			});
+			
+			function getLang() {
+				var lang = new Object();
+				lang.collapse = "{:C("COLLAPSE")}";
+				lang.expand = "{:C("EXPAND")}";
+				return lang;
+			}
 		</script>
 	</body>
 	<!-- end: BODY -->
