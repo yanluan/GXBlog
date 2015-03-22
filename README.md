@@ -2,7 +2,7 @@
 
 ##Info##
 
-- Version 2.0.0
+- Version 2.0.0_dev
 
 ## Description ##
 
@@ -27,7 +27,7 @@ Of course, you could make contributions to the GXBlog project, if you do.
 The outstanding contributers' name would be added to the contributers list.
 
 You should have received a copy of the GNU Lesser General Public License(COPYING COPYING.LESSER)
-along with RedNews CMS.  If not, see <http://www.gnu.org/licenses/>.
+along with GXBlog.  If not, see <http://www.gnu.org/licenses/>.
 
 ## CONTACT ##
 
