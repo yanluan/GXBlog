@@ -8,8 +8,8 @@
  */
 
 $root = dirname(dirname(dirname(dirname(__FILE__))));
-$C = require_once $root . '/config.inc.php';
-require_once 'JSON.php';
+$C = require $root . '/config.ini.php';
+require './JSON.php';
 
 //根目录路径，可以指定绝对路径，比如 /var/www/attached/
 $root_path = $C['UPLOAD_PATH'] . "/";

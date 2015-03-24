@@ -108,34 +108,4 @@ return array (
 		// TP框架扩展配置[ThinkPHP framework configuration]
 		'M_DEPRECATED' 			=> ture, // 禁用M方法
 		
-		//============//
-		//Admin module//
-		//============//
-		
-		/** EmailPush Controller **/
-		// 管理界面条目数
-		'MANAGE_PAGE_ITEM_COUNT' => 10,
-		
-		// 推送配置
-		'PUSH_SERVER_URL' => '', // http://115.28.154.115:1720/emailPushAPI
-		
-		// 推送[Push]
-		'EMAIL_PUSH_SWITCH' => true, // 邮件推送开关
-		
-		/** LikeActivity Controller **/
-		'LIKE_ACTIVITY_CID' 		=> 1, // 点赞活动分类父ID
-		'LIKE_ACTIVITY_CONTENT_CID' => 2, // 活动详情分类ID
-		'LIKE_ACTIVITY_RECRUIT_CID' => 3, // 招聘专场分类ID
-		'LIKE_ACTIVITY_BOSS_CID' 	=> 4, // 大佬分类ID
-		
-		//=============//
-		//WeChat Module//
-		//=============//
-		
-		/** APIController **/
-		'WECHAT_API_VALID' => TRUE, // 开发者验证开关
-		
-		
-		
-		
 );

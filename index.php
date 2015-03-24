@@ -10,7 +10,7 @@
 if (version_compare ( PHP_VERSION, '5.3.0', '<' ))
 	die ( 'require PHP > 5.3.0 !' );
 	
-	// Open the debug mode
+// Open the debug mode
 define ( 'APP_DEBUG', True );
 
 // Define the path of app

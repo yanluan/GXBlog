@@ -1,15 +1,77 @@
-<script src="__PUBLIC__/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="__PUBLIC__/plugins/nvd3/lib/d3.v3.js"></script>
-<script src="__PUBLIC__/plugins/nvd3/nv.d3.min.js"></script>
-<script src="__PUBLIC__/plugins/nvd3/src/models/historicalBar.js"></script>
-<script src="__PUBLIC__/plugins/nvd3/src/models/historicalBarChart.js"></script>
-<script src="__PUBLIC__/plugins/nvd3/src/models/stackedArea.js"></script>
-<script src="__PUBLIC__/plugins/nvd3/src/models/stackedAreaChart.js"></script>
-<script src="__PUBLIC__/plugins/jquery.sparkline/jquery.sparkline.js"></script>
-<script src="__PUBLIC__/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-<script src="__PUBLIC__/js/index.js"></script>
+<!-- start: form -->
+<script src="__PUBLIC__/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
+<script src="__PUBLIC__/plugins/autosize/jquery.autosize.min.js"></script>
+<script src="__PUBLIC__/plugins/select2/select2.min.js"></script>
+<script src="__PUBLIC__/plugins/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+<script src="__PUBLIC__/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
+<script src="__PUBLIC__/plugins/jquery-maskmoney/jquery.maskMoney.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-colorpicker/js/commits.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<script src="__PUBLIC__/plugins/jQuery-Tags-Input/jquery.tagsinput.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+<script src="__PUBLIC__/plugins/ckeditor/ckeditor.js"></script>
+<script src="__PUBLIC__/plugins/ckeditor/adapters/jquery.js"></script>
+<script src="__PUBLIC__/js/form-elements.js"></script>
+<!-- end: form -->
 <script>
 	jQuery(document).ready(function() {
-		Index.init();
+		FormElements.init();
 	});
+</script>
+
+<!-- KindEditor -->
+<script charset="utf-8" src="__KINDEDITOR__/kindeditor.js"></script>
+<script charset="utf-8" src="__KINDEDITOR__/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__KINDEDITOR__/plugins/code/prettify.js"></script>
+<!--/ KindEditor -->
+<script>
+jQuery(document).ready(function(){
+	// common vars
+	var _kindeditor = null;
+
+	// submit button
+	jQuery("#submit-button").click(function() {
+		_kindeditor.sync();
+		jQuery("form[name=form]")[0].submit();
+	});
+
+	// KindEditor
+	KindEditor.ready(function(K) {
+		var editor = K.create('textarea[name="content"]', {
+			themeType : 'simple',
+			cssPath : '__KINDEDITOR__/plugins/code/prettify.css',
+			uploadJson : '__KINDEDITOR__/php/upload_json.php',
+			fileManagerJson : '__KINDEDITOR__/php/file_manager_json.php',
+			allowFileManager : true,
+			items : [
+			'fullscreen','source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+			'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+			'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+			'superscript', 'clearhtml', 'quickformat', 'selectall', '|',
+			'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+			'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+			'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+			'anchor', 'link', 'unlink', '|', 'about'
+					],
+					afterCreate : function() {
+						var self = this;
+						_kindeditor = this;
+						K.ctrl(document, 13, function() {
+							self.sync();
+							K('form[name=form]')[0].submit();
+						});
+						K.ctrl(self.edit.doc, 13, function() {
+							self.sync();
+							K('form[name=form]')[0].submit();
+						});
+					}
+		});
+		prettyPrint();
+	});
+
+});
 </script>

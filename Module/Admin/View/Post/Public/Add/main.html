@@ -40,100 +40,183 @@
 						<!-- end: BREADCRUMB -->
 						<!-- start: PAGE CONTENT -->
 						<div class="row">
-							<div class="col-md-6 col-lg-3 col-sm-6">
-								<div class="panel panel-default panel-white core-box">
-									<div class="panel-tools">
-										<a href="#" class="btn btn-xs btn-link panel-close">
-											<i class="fa fa-times"></i>
-										</a>
-									</div>
-									<div class="panel-body no-padding">
-										<div class="partition-green padding-20 text-center core-icon">
-											<i class="fa fa-bar-chart-o fa-2x icon-big"></i>
+							<div class="col-sm-8">
+								<!-- start: TEXT FIELDS PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title"><span class="text-bold">必填选项</span></h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
 										</div>
-										<div class="padding-20 core-content">
-											<h3 class="title block no-margin">SEO</h3>
-											<span class="subtitle"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </span>
-										</div>
 									</div>
-									<div class="panel-footer clearfix no-padding">
-										<div class=""></div>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-green" data-toggle="tooltip" data-placement="top" title="More Options"><i class="fa fa-cog"></i></a>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-blue" data-toggle="tooltip" data-placement="top" title="Add Content"><i class="fa fa-plus"></i></a>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-red" data-toggle="tooltip" data-placement="top" title="View More"><i class="fa fa-chevron-right"></i></a>
+									<div class="panel-body">
+										<form role="form" class="form-horizontal">
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="form-field-1">
+													标题
+												</label>
+												<div class="col-sm-9">
+													<input type="text" id="form-field-1" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="form-field-23">
+													摘要
+												</label>
+												<div class="col-sm-9">
+													<textarea maxlength="50" id="form-field-23" class="form-control limited"></textarea>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">
+													内容
+												</label>
+												<div class="col-sm-9">
+													<textarea name="content" class="form-control" style="width:100%;" rows="14" ></textarea>
+												</div>
+											</div>
+										</form>
 									</div>
 								</div>
+								<!-- end: TEXT FIELDS PANEL -->
 							</div>
-							<div class="col-md-6 col-lg-3 col-sm-6">
-								<div class="panel panel-default panel-white core-box">
-									<div class="panel-tools">
-										<a href="#" class="btn btn-xs btn-link panel-close">
-											<i class="fa fa-times"></i>
-										</a>
-									</div>
-									<div class="panel-body no-padding">
-										<div class="partition-blue padding-20 text-center core-icon">
-											<i class="fa fa-code fa-2x icon-big"></i>
+							<div class="col-sm-4">
+								<!-- start: TAGS PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title">标签</h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
 										</div>
-										<div class="padding-20 core-content">
-											<h3 class="title block no-margin">Programming</h3>
-											<span class="subtitle"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </span>
-										</div>
 									</div>
-									<div class="panel-footer clearfix no-padding">
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-green" data-toggle="tooltip" data-placement="top" title="More Options"><i class="fa fa-cog"></i></a>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-blue" data-toggle="tooltip" data-placement="top" title="Add Content"><i class="fa fa-plus"></i></a>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-red" data-toggle="tooltip" data-placement="top" title="View More"><i class="fa fa-chevron-right"></i></a>
+									<div class="panel-body">
+										<input id="tags_1" type="text" class="tags" value="PHP,微信开发">
 									</div>
 								</div>
+								<!-- end: TAGS PANEL -->
 							</div>
-							<div class="col-md-6 col-lg-3 col-sm-6">
-								<div class="panel panel-default panel-white core-box">
-									<div class="panel-tools">
-										<a href="#" class="btn btn-xs btn-link panel-close">
-											<i class="fa fa-times"></i>
-										</a>
-									</div>
-									<div class="panel-body no-padding">
-										<div class="partition-red padding-20 text-center core-icon">
-											<i class="fa fa-desktop fa-2x icon-big"></i>
+							<div class="col-sm-4">
+								<!-- start: TAGS PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title">分类</h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
 										</div>
-										<div class="padding-20 core-content">
-											<h3 class="title block no-margin">Web design</h3>
-											<span class="subtitle"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </span>
-										</div>
 									</div>
-									<div class="panel-footer clearfix no-padding">
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-green" data-toggle="tooltip" data-placement="top" title="More Options"><i class="fa fa-cog"></i></a>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-blue" data-toggle="tooltip" data-placement="top" title="Add Content"><i class="fa fa-plus"></i></a>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-red" data-toggle="tooltip" data-placement="top" title="View More"><i class="fa fa-chevron-right"></i></a>
+									<div class="panel-body">
+										<div class="form-group">
+											<select id="form-field-select-3" class="form-control search-select">
+												<option value="">&nbsp;</option>
+												<option value="AL">Alabama</option>
+											</select>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-6 col-lg-3 col-sm-6">
-								<div class="panel panel-default panel-white core-box">
-									<div class="panel-tools">
-										<a href="#" class="btn btn-xs btn-link panel-close">
-											<i class="fa fa-times"></i>
-										</a>
-									</div>
-									<div class="panel-body no-padding">
-										<div class="partition-azure padding-20 text-center core-icon">
-											<i class="fa fa-shopping-cart fa-2x icon-big"></i>
-										</div>
-										<div class="padding-20 core-content">
-											<h3 class="title block no-margin">Orders</h3>
-											<span class="subtitle"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </span>
-										</div>
-									</div>
-									<div class="panel-footer clearfix no-padding">
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-green" data-toggle="tooltip" data-placement="top" title="More Options"><i class="fa fa-cog"></i></a>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-blue" data-toggle="tooltip" data-placement="top" title="Add Content"><i class="fa fa-plus"></i></a>
-										<a href="#" class="col-xs-4 padding-10 text-center text-white tooltips partition-red" data-toggle="tooltip" data-placement="top" title="View More"><i class="fa fa-chevron-right"></i></a>
-									</div>
-								</div>
+								<!-- end: TAGS PANEL -->
 							</div>
 						</div>
+						
+						<div class="row">
+							<div class="col-sm-8">
+								<!-- start: FILE UPLOAD PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title"><span class="text-bold">其他选项</span></h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="panel-body">
+										<form role="form" class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-2 control-label" for="form-field-1">
+												缩略图
+											</label>
+											<div class="col-sm-9">
+												<div class="fileupload fileupload-new" data-provides="fileupload">
+													<div class="input-group">
+														<div class="form-control uneditable-input">
+															<i class="fa fa-file fileupload-exists"></i>
+															<span class="fileupload-preview"></span>
+														</div>
+														<div class="input-group-btn">
+															<div class="btn btn-light-grey btn-file">
+																<span class="fileupload-new"><i class="fa fa-folder-open-o"></i> Select file</span>
+																<span class="fileupload-exists"><i class="fa fa-folder-open-o"></i> Change</span>
+																<input type="file" class="file-input">
+															</div>
+															<a href="#" class="btn btn-light-grey fileupload-exists" data-dismiss="fileupload">
+																<i class="fa fa-times"></i> Remove
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										</form>
+									</div>
+								</div>
+								<!-- end: FILE UPLOAD PANEL -->
+							</div>
+						</div>
+						
 						<!-- end: PAGE CONTENT-->
 					</div>
 					<div class="subviews">

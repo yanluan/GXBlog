@@ -7,9 +7,9 @@
  *
  */
 $root = dirname(dirname(dirname(dirname(__FILE__))));
-$C = require_once $root . '/config.inc.php';
+$C = require $root . '/config.ini.php';
 
-require_once 'JSON.php';
+require './JSON.php';
 
 //文件保存目录路径
 $save_path =  $C['UPLOAD_PATH'] . "/";
